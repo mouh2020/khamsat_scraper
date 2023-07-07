@@ -57,13 +57,13 @@ def build_message(request : Request):
     return f'''📣📣 New Request Alert 📣📣
 
 🔹 Request Title: {request.title}
-------------------------------------------------------------------------
+----------------------------------------------------------------------
 🔹 Request Description: {request.description}
-------------------------------------------------------------------------
+----------------------------------------------------------------------
 🔹 Requester Name: {request.requester_name}
-------------------------------------------------------------------------
+----------------------------------------------------------------------
 🔹 Requester Rating: {request.requester_rating}
-------------------------------------------------------------------------
+----------------------------------------------------------------------
 '''
 
 def send_alert(chat_id,request : Request) : 
@@ -77,6 +77,7 @@ while True :
     database_session = Session(engine)
     set_new_proxy()
     requests_ids = get_last_contributors_section()
+    requests_ids.reverse()
     try : 
         logger.info(f'fetched {len(requests_ids)} requests from contributors page.')
         for request in requests_ids : 
