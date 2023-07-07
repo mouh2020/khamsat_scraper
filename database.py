@@ -11,7 +11,7 @@ class Request(SQLModel, table=True):
     requester_rating    : Optional[str]     = Field(default=None)
     created_date        : datetime          = Field(default_factory=datetime.utcnow,nullable=False)
 
-sqlite_file_name = "mostaql_offers.db"
+sqlite_file_name = "khamsat_requests.db"
 sqlite_url = f"sqlite:///{sqlite_file_name}"
 
 engine = create_engine(sqlite_url)
