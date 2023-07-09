@@ -71,7 +71,8 @@ def send_alert(chat_id,request : Request) :
     markup.add(InlineKeyboardButton("⬅️ Click here to visit the request's page ➡️", url=request_page+str(request.request_id)))
     bot.send_message(chat_id=int(chat_id),
                      text=build_message(request),
-                     reply_markup=markup)
+                     reply_markup=markup,
+                     disable_web_page_preview=True)
 
 while True : 
     database_session = Session(engine)
